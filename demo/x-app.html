@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../paper-button/paper-button.html">
+<link rel="import" href="../pluralize-behavior.html">
+
+<dom-module id="x-app">
+  <template>
+    <span>I implement `PluralizeBehavior._pluralize` exactly [[times]] [[_pluralize('time', times)]]</span>
+    <paper-button type="button" name="button" on-tap="[[inc]]"></paper-button>
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'x-app',
+      properties: {
+        times: Number,
+      },
+
+      behaviors: [PolymerElements.PluralizeBehavior],
+
+      ready: function() {
+        this.times = 0;
+      },
+
+      inc: function() {
+        this.times++;
+      }
+    });
+  </script>
+</dom-module>

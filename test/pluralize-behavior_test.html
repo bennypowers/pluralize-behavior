@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>pluralize-behavior test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../pluralize-behavior.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <dom-module id="x-app">
+          <template>
+            <style>
+              :host {
+                display: block;
+              }
+            </style>
+
+          </template>
+          <script>
+            Polymer({
+              is: 'x-app',
+              properties: {
+                times: Number,
+                string: {
+                  type: String,
+                  computed: 'computeString("time", times)',
+                }
+              }
+
+              behaviors: [PolymerElements.PluralizeBehavior],
+
+              ready: function() {
+                this.times = 0;
+              },
+
+              inc: function() {
+                this.times++;
+              },
+
+              computeString: function(s, times) {
+                this._pluralize(s, times);
+              },
+            });
+          </script>
+        </dom-module>
+        <x-app></x-app>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('pluralize-behavior', function() {
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'x-app');
+        });
+
+        test('incrementing once singularizes', function() {
+          let element = fixture('basic');
+          element.inc();
+          assert.equal(element.times, )
+        });
+      });
+    </script>
+  </body>
+</html>
