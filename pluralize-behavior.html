@@ -10,8 +10,14 @@
 * @polymerBehavior
 */
 PolymerElements.PluralizeBehavior = {
-	pluralize: function(string, num) {
-		return pluralize(string, num);
+	/**
+	 * Pluralizes a string according to a provided number
+	 * @param  {String} string The string to pluralize.
+	 * @param  {Number} number The number of things.
+	 * @return {String}        The pluralized string.
+	 */
+	pluralize: function(string, number) {
+		return pluralize(string, number);
 	}
 };
 
