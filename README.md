@@ -1,21 +1,33 @@
 # \<pluralize-behavior\>
 
-Simple Polymer behavior that wraps `pluralize` as `_pluralize`
+Simple Polymer behavior that wraps `pluralize` as `pluralize`
 
-## Install the Polymer-CLI
+## Usage
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
+Import the behavior.
 
-## Viewing Your Element
-
-```
-$ polymer serve
+```html
+<link rel="import" href="../pluralize-behavior/pluralize-behavior.html">
 ```
 
-## Running Tests
-
+Mix the behavior into your element.
+```html
+<script>
+  Polymer({
+    is: 'my-element',
+    behaviors: [PolymerElements.PluralizeBehavior],
+  });
+</script>
 ```
-$ polymer test
+
+Use it imperatively or in binding annotations:
+
+```html
+<span>Value: [[number]] [[pluralize('thing', number)]]</span>
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+```js
+myMethod: function() {
+  return `You have ${this.value} ${this.pluralize('item', this.value)}`;
+}
+```

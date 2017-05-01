@@ -1,7 +1,7 @@
 {
   "name": "pluralize-behavior",
   "authors": "Benny Powers <benny.p@elasticmedia.io>",
-  "description": "Simple Polymer behavior that wraps pluralize as `_pluralize`",
+  "description": "Simple Polymer behavior that wraps pluralize",
   "main": "pluralize-behavior.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",

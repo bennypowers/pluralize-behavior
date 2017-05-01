@@ -6,11 +6,13 @@
 <script>
 /* global pluralize */
 /**
-* Simple Polymer behavior that wraps pluralize as _pluralize
+* Simple Polymer behavior that wraps pluralize.
 * @polymerBehavior
 */
 PolymerElements.PluralizeBehavior = {
-	_pluralize: (string, num) => pluralize(string, num),
+	pluralize: function(string, num) {
+		return pluralize(string, num);
+	}
 };
 
 // define namespace
